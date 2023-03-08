@@ -1,15 +1,43 @@
 {% extends 'main.html'%} {% block content %}
-<h1>Home</h1>
 
-<div>
-  <a href="{% url 'create-bookmark' %}"> Add Bookmark</a>
-  {% for bookmark in bookmarks %}
-  <div>
-    <h5>
-      <a href="{% url 'bookmark' bookmark.id%}">{{bookmark.name}} </a> --
-      {{bookmark.description}}
-    </h5>
+<style>
+  .home-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+</style>
+
+<div class="home-container">
+  <div class="sidebar">
+    <h3>Bookmark Categories</h3>
+    <hr />
+    <div>
+      <a href="{% url 'home'%}?q={{category.name}}">All</a>
+    </div>
+
+    {% for category in categories %}
+
+    <div>
+      <a href="{% url 'home'%}?q={{category.name}}">{{category.name}} </a>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
+
+  <div class="bookmarks-container">
+    <h5>{{bookmark_count}} total bookmarks</h5>
+
+    <a href="{% url 'create-bookmark' %}"> Add Bookmark</a>
+    {% for bookmark in bookmarks %}
+    <div>
+      <a href="{% url 'update-bookmark' bookmark.id%}">Edit</a>
+      <a href="{% url 'delete-bookmark' bookmark.id%}">Delete</a>
+      <h5>
+        <a href="{% url 'bookmark' bookmark.id%}">{{bookmark.name}} </a> --
+        {{bookmark.description}}
+      </h5>
+    </div>
+    {% endfor %}
+  </div>
 </div>
+
 {% endblock content %}

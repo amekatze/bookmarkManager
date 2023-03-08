@@ -17,8 +17,11 @@ class Bookmark(models.Model):
     url = models.URLField(max_length=200)
     description = models.TextField(null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
-    update = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-updated', '-created']
 
     def __str__(self):
         return self.name
