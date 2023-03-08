@@ -1,0 +1,15 @@
+{% extends 'main.html'%} {% block content %}
+<h1>Home</h1>
+
+<div>
+  <a href="{% url 'create-bookmark' %}"> Add Bookmark</a>
+  {% for bookmark in bookmarks %}
+  <div>
+    <h5>
+      <a href="{% url 'bookmark' bookmark.id%}">{{bookmark.name}} </a> --
+      {{bookmark.description}}
+    </h5>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

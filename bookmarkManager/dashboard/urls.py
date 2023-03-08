@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('bookmark/', views.bookmark, name="bookmark")
+    path('bookmark/<str:pk>/', views.bookmark, name="bookmark"),
+    path('create-bookmark/', views.createBookmark, name="create-bookmark"),
 ]
