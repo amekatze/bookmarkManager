@@ -45,6 +45,7 @@ function EditBookmark(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <label>Category</label>
         <select value={formValues.category_name} onChange={handleSelectChange}>
           {props.categories.map((category) => {
             return (
@@ -77,13 +78,14 @@ function EditBookmark(props) {
         ></input>
         <button type='submit'>Save</button>
       </form>
-      <p
+      <button
+        className='goback'
         onClick={() => {
           props.setView('main');
         }}
       >
         Go back
-      </p>
+      </button>
     </div>
   );
 }

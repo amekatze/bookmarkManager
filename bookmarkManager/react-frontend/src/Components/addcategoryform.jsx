@@ -56,13 +56,14 @@ function AddCategoryForm(props) {
         <button type='submit'>Add Category</button>
       </form>
 
-      <p
+      <button
+        className='goback'
         onClick={() => {
           props.setView('main');
         }}
       >
         Go back
-      </p>
+      </button>
     </div>
   );
 }

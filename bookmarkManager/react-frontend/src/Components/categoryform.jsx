@@ -67,7 +67,7 @@ function CategoryForm(props) {
   }, [props.categories]);
 
   return (
-    <div className='formcontrol'>
+    <div className='editcategory'>
       <form>
         {categories.map((category) => {
           return (
@@ -89,7 +89,9 @@ function CategoryForm(props) {
           );
         })}
       </form>
-      <p onClick={() => props.setView('main')}>Go back</p>
+      <button className='goback' onClick={() => props.setView('main')}>
+        Go back
+      </button>
     </div>
   );
 }

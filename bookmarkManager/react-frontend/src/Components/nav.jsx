@@ -1,8 +1,9 @@
-function Nav() {
+import '../styles/nav.css';
+
+function Nav(props) {
   return (
-    <div>
+    <div className='nav'>
       <p>Bookmark Manager</p>
-      <hr />
     </div>
   );
 }

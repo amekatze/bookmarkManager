@@ -23,6 +23,7 @@ function Main(props) {
   return (
     <div className='main-container'>
       <div className='sidebar'>
+        <h4>Categories</h4>
         <p
           onClick={() => {
             props.setView('addcategoryform');
@@ -37,7 +38,7 @@ function Main(props) {
         >
           Edit Categories
         </p>
-        <p>Categories</p>
+        <hr />
         <p
           onClick={() => {
             setSelectedCategory('');
@@ -61,16 +62,16 @@ function Main(props) {
       </div>
 
       <div className='bookmark-container'>
-        <p
+        <button
           onClick={() => {
             props.setView('addbookmark');
           }}
         >
           Add Bookmark
-        </p>
+        </button>
         {filteredBookmarks.map((bookmark) => {
           return (
-            <p key={bookmark.id}>
+            <div className='bookmark-card' key={bookmark.id}>
               <a href={bookmark.url} target='_blank'>
                 {bookmark.name}
               </a>
@@ -78,6 +79,7 @@ function Main(props) {
               <small>Category: {bookmark.category_name}</small>
               <div>
                 <button
+                  className='edit'
                   id={bookmark.id}
                   onClick={(e) => {
                     props.setView('editbookmark');
@@ -88,7 +90,7 @@ function Main(props) {
                   Edit
                 </button>
               </div>
-            </p>
+            </div>
           );
         })}
       </div>

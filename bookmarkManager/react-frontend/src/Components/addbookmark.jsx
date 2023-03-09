@@ -92,6 +92,14 @@ function AddBookmark(props) {
         ></textarea>
         <button type='submit'>Add bookmark</button>
       </form>
+      <button
+        className='goback'
+        onClick={() => {
+          props.setView('main');
+        }}
+      >
+        Go back
+      </button>
     </div>
   );
 }

@@ -42,11 +42,13 @@ function App() {
   return (
     <div className='App'>
       <Nav />
-      {view === 'main' && <Main {...props} />}
-      {view === 'categoryform' && <CategoryForm {...props} />}
-      {view === 'addbookmark' && <AddBookmark {...props} />}
-      {view === 'editbookmark' && <EditBookmark {...props} />}
-      {view === 'addcategoryform' && <AddCategoryForm {...props} />}
+      <div className='content'>
+        {view === 'main' && <Main {...props} />}
+        {view === 'categoryform' && <CategoryForm {...props} />}
+        {view === 'addbookmark' && <AddBookmark {...props} />}
+        {view === 'editbookmark' && <EditBookmark {...props} />}
+        {view === 'addcategoryform' && <AddCategoryForm {...props} />}
+      </div>
     </div>
   );
 }
