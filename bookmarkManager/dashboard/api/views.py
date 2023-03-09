@@ -54,7 +54,7 @@ def getBookmark(request, pk):
         return Response({"message": "Bookmark deleted successfully"})
 
 
-@api_view(['GET', 'POST', 'DELETE'])
+@api_view(['GET', 'POST', 'DELETE', 'PATCH'])
 def getCategories(request, pk=''):
 
     if request.method == 'GET':
@@ -76,3 +76,15 @@ def getCategories(request, pk=''):
             return Response({"error": "Category not found or invalid ID"})
         category.delete()
         return Response({"message": "Category deleted successfully"})
+
+    elif request.method == 'PATCH':
+        try:
+            category = Category.objects.get(id=pk)
+        except (ValueError, Category.DoesNotExist):
+            return Response({"error": "Category not found or invalid ID"})
+        serializer = CategorySerializer(
+            instance=category, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)

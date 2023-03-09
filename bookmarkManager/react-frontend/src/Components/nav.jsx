@@ -1,7 +1,7 @@
 function Nav() {
   return (
     <div>
-      <p>im a nav</p>
+      <p>Bookmark Manager</p>
       <hr />
     </div>
   );
