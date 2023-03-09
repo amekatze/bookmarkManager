@@ -3,6 +3,8 @@ from . import views
 
 urlpatterns = [
     path('', views.getRoutes),
-    path('bookmarks/', views.getBookmarks),
-    path('bookmarks/<str:pk>', views.getBookmark)
+    path('bookmark/', views.getBookmarks),
+    path('bookmark/<str:pk>', views.getBookmark),
+    path('category/', views.getCategories),
+    path('category/<str:pk>', views.getCategories)
 ]

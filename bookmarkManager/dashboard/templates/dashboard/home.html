@@ -5,6 +5,19 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
   }
+
+  .bookmark-container {
+    margin: 20px 10px;
+  }
+
+  .bookmark {
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+  .link a {
+    margin-right: 10px;
+  }
 </style>
 
 <div class="home-container">
@@ -23,17 +36,19 @@
     {% endfor %}
   </div>
 
-  <div class="bookmarks-container">
-    <h5>{{bookmark_count}} total bookmarks</h5>
-
+  <div class="bookmark-container">
     <a href="{% url 'create-bookmark' %}"> Add Bookmark</a>
+    <p>{{bookmark_count}} total bookmarks</p>
     {% for bookmark in bookmarks %}
-    <div>
+    <div class="bookmark">
       <a href="{% url 'update-bookmark' bookmark.id%}">Edit</a>
       <a href="{% url 'delete-bookmark' bookmark.id%}">Delete</a>
       <h5>
-        <a href="{% url 'bookmark' bookmark.id%}">{{bookmark.name}} </a> --
-        {{bookmark.description}}
+        <span class="link">
+          <a href="{% url 'bookmark' bookmark.id%}">{{bookmark.name}} </a>
+          <a href="{{bookmark.url}}" target="_blank">Visit</a>
+        </span>
+        <p>Category: {{ bookmark.category_name }}</p>
       </h5>
     </div>
     {% endfor %}

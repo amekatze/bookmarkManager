@@ -25,3 +25,6 @@ class Bookmark(models.Model):
 
     def __str__(self):
         return self.name
+
+    def category_name(self):
+        return self.category.name if self.category else ''

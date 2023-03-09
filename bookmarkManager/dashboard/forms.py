@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Bookmark
+from .models import Bookmark, Category
 
 
 class BookmarkForm(ModelForm):
