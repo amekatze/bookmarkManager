@@ -63,6 +63,7 @@ function Main(props) {
 
       <div className='bookmark-container'>
         <button
+          className='addbookmark'
           onClick={() => {
             props.setView('addbookmark');
           }}
@@ -76,10 +77,10 @@ function Main(props) {
                 {bookmark.name}
               </a>
               <br />
+              <p>Description: {bookmark.description}</p>
               <small>Category: {bookmark.category_name}</small>
-              <div>
+              <div className='edit'>
                 <button
-                  className='edit'
                   id={bookmark.id}
                   onClick={(e) => {
                     props.setView('editbookmark');
@@ -88,6 +89,22 @@ function Main(props) {
                   }}
                 >
                   Edit
+                </button>
+                <button
+                  id={bookmark.id}
+                  onClick={() => {
+                    fetch(`http://localhost:8000/api/bookmark/${bookmark.id}`, {
+                      method: 'DELETE',
+                    })
+                      .then((res) => res.json())
+                      .then((data) => {
+                        // Update the list of bookmarks in the parent component
+                        setBookmarks(data.bookmarks);
+                      })
+                      .catch((error) => console.error(error));
+                  }}
+                >
+                  Delete
                 </button>
               </div>
             </div>

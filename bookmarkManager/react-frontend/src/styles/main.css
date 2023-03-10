@@ -12,7 +12,7 @@
     margin-top: -10px;
     width: 200px;
     height: 100%;
-    border: 1px solid black;
+    border: 1px solid rgb(126, 126, 126);
     background-color: rgb(231, 231, 231);
 }
 
@@ -28,16 +28,34 @@
     color: rgb(13, 192, 186);
 }
 
+.bookmark-container {
+    margin: 20px;
+}
+
+.addbookmark{
+    margin-left: 20px;
+}
+
 .bookmark-card{
     background-color: rgb(232, 232, 232);
-    margin: 20px 20px;
+    margin: 30px 0;
     padding: 25px;
     border-radius: 7px;
+    border: 1px solid rgb(126, 126, 126);
+}
+
+.bookmark-card a {
+    color:rgb(21, 123, 123);
+    font-weight: bolder;
+}
+
+.bookmark-card a:hover{
+    color:rgb(38, 162, 162);
 }
 
 .edit {
     float:right;
-    margin-top: -35px;
+    margin-top: -67px;
 }
 
 .goback{

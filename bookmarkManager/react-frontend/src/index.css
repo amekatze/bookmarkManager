@@ -7,7 +7,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 .content {
@@ -26,6 +27,7 @@ button {
   border-radius: 5px;
   background-color: rgb(233, 152, 117);
   border: 1px solid rgb(220, 121, 50);
+  cursor: pointer;
 }
 
 button:hover{
@@ -39,6 +41,7 @@ form {
   padding: 20px;
   width: 40vw;
   border-radius: 5px;
+  border: 1px solid rgb(126, 126, 126);
 }
 
 form select {
