@@ -28,7 +28,7 @@ function App() {
       setBookmarks(data);
     }
     getBookmarks();
-  }, [setView, []]);
+  }, [setView]);
 
   useEffect(() => {
     async function getCatgories() {
